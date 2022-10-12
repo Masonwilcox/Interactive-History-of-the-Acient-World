@@ -1,0 +1,1751 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 10px;
+	font-family: 'Montserrat', sans-serif;
+	scroll-behavior: smooth;
+}
+a {
+	text-decoration: none;
+}
+.container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 0.1rem;
+}
+li{
+	font-size: 1rem;
+}
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+.section-title span {
+	color: crimson;
+}
+
+
+.PGreeksSection-title {
+	font-size: 4rem;
+	font-weight: 400;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	height: 570px;
+}
+.PGreeksSection-title span {
+	color: #10ECD5;
+}
+
+.cta {
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid crimson;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+.cta:hover {
+	color: white;
+	background-color: crimson;
+}
+
+.brand h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+.brand h1 span {
+	color: crimson;
+}
+
+/* Header section */
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+#header .header {
+	min-height: 8vh;
+	background-color: rgba(31, 30, 30, 0.24);
+	transition: 0.3s ease background-color;
+}
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: rgb(31, 30, 30);
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: 0.5s ease left;
+}
+#header .nav-list ul.active {
+	left: 0%;
+}
+#header .nav-list ul a {
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+#header .nav-list ul li:hover a {
+	color: crimson;
+}
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(0.8);
+	margin-right: 20px;
+}
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid white;
+	animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: white;
+	z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: white;
+	transition: 0.3s ease;
+	transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+	top: 8px;
+}
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+/* End Header section */
+
+/* Map Section */
+#Map {
+	background-image: url(./img/Map-bg.png);
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+}
+#Map::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: -1;
+}
+#Map .Map {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+#Map h1 {
+	display: block;
+	width: fit-content;
+	font-size: 3rem;
+	position: relative;
+	color: transparent;
+	animation: text_reveal 0.5s ease forwards;
+	animation-delay: 1s;
+}
+#Map h1:nth-child(1) {
+	animation: text_reveal_name 0.5s ease forwards;
+	animation-delay: 1s;
+}
+#Map h1:nth-child(2) {
+	animation-delay: 2s;
+}
+#Map h1:nth-child(3) {
+	animation: text_reveal_name 0.5s ease forwards;
+	animation-delay: 3s;
+}
+#Map h1:nth-child(4) {
+	animation-delay: 4s;
+}
+#Map h1:nth-child(5) {
+	animation: text_reveal_name 0.5s ease forwards;
+	animation-delay: 5s;
+}
+#Map h1:nth-child(6) {
+	animation-delay: 6s;
+}
+#Map h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: crimson;
+	animation: text_reveal_box 1s ease;
+	animation-delay: 0.5s;
+}
+#Map h1:nth-child(1) span {
+	animation-delay: 0.5s;
+}
+#Map h1:nth-child(2) span {
+	animation-delay: 1.5s;
+}
+#Map h1:nth-child(3) span {
+	animation-delay: 2.5s;
+}
+#Map h1:nth-child(4) span {
+	animation-delay: 3.5s;
+}
+#Map h1:nth-child(5) span {
+	animation-delay: 4.5s;
+}
+#Map h1:nth-child(6) span {
+	animation-delay: 5.5s;
+}
+/* End Map Section */
+
+/* Pre-Greeks section */
+#PGreeks {
+	background-image: url(./img/Minoan-Bull.png);
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+}
+#PGreeks::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.25;
+	z-index: -1;
+}
+.PGreeksSection-title {
+	font-size: 4rem;
+	font-weight: 400;
+	color: white;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	margin-bottom: 15%;
+}
+.PGreeksSection-title span {
+	color: brown;
+}
+
+#PGreeks .cta {
+	display: inline-block;
+	padding: 1.4% 1.8%;
+	color: White;
+	background-color: transparent;
+	border: 3px solid #FFD000;
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+#PGreeks .cta:hover {
+	color: greenyellow;
+	background-color:  #00A4E0;
+}
+
+#PGreeks .AMinoanscontainer {
+	/* max-width: 400px; */
+	width: 100%;
+}
+#PGreeks .AMinoanscontainer {
+	position: absolute;
+	top: 50%;
+	left: 68%;
+	margin-right: -20%;
+	word-wrap: normal; 
+	z-index: 1;
+	transform: translate(-50%, -50%)
+
+}
+#PGreeks .AMinoanscontainer:hover {
+	opacity: 1;
+}
+
+#PGreeks .cta1 {
+	display: inline-block;
+	padding: 1.4% 1.8%;
+	color: white;
+	background-color: transparent;
+	border: 3px solid #CD7F32;
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+#PGreeks .cta1:hover {
+	color: cyan;
+	background-color:  #C0C0C0;
+}
+#PGreeks .AMycenaeanscontainer {
+	/* max-width: 400px; */
+	width: 100%;
+}
+#PGreeks .AMycenaeanscontainer {
+	position: absolute;
+	top: 50%;
+	left: 108%;
+	margin-right: -20%;
+	word-wrap: normal; 
+	z-index: 1;
+	transform: translate(-50%, -50%)
+
+}
+
+#PGreeks .AMycenaeanscontainer:hover {
+	opacity: 1;
+}
+/* End Pre-Greeks section */
+
+/*  Minoan History Section */
+#AMH {
+	min-height: 100vh;
+	width: 100%;
+	padding: 0%;
+	background-image:  url(./img/Minoans-bg.png);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 1;
+}
+	
+	#AMH::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: black;
+		opacity: 0.2;
+		z-index: -1;
+	}
+	.AMH-title {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 80px;
+		right: 500px;
+		z-index: 2;
+	}
+	.AMH-title span {
+		color: #83B8D0;
+	}
+	.AMH-title{
+		display: inline-block;
+		background-color: white;
+		opacity: 0.7;
+	}
+	.AMH-title2 {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 127.78px;
+		right: 610px;
+		z-index: 2;
+	}
+	.AMH-title2 span {
+		color: #83B8D0;
+	}
+	.AMH-title2{
+		display: inline-block;
+		background-color: white;
+		opacity: 0.7;
+	}
+	#AMH .AMH {
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+	#AMH h1 {
+		display: block;
+		width: fit-content;
+		font-size: 4rem;
+		position: relative;
+		color: black;
+		animation: text_reveal 0.5s ease forwards;
+		animation-delay: 1s;
+	}
+	
+	#AMH .contact {
+		position: absolute;
+		display: inline;
+		margin-top: 100px;
+		flex-direction: column;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	
+	}
+	#AMH .contact-items {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#AMH .contact-item {
+		position: absolute;
+		top: 56%;
+		left: 57%;
+		margin-right: -20%;
+		opacity: 0.1;
+		z-index: 1;
+		transform: translate(-50%, -50%)
+	
+	}
+	
+	#AMH .contact-item:hover {
+		opacity: 0.9;
+	}
+	
+	#AMH .cta{
+		position: relative;
+		top: 30%;
+		left: 85%;
+	}
+
+	#AMH .Timeline-container{
+		display: inline-block;
+		padding: 1.4% 1.8%;
+		width: 300px;
+		margin-top: 15%;
+		margin-left: 3%;
+		color: White;
+		background-color: black;
+		opacity: 0.7;
+		z-index: 3;
+	}
+	#AMH h5 {
+		color: White;
+		font-size: 2rem;
+		letter-spacing: 0.1rem;
+		margin-top: 15px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+		z-index: 2;
+	}
+	#AMH p {
+		color: White;
+		font-size: 1.4rem;
+		letter-spacing: 0.01rem;
+		line-height: 1.5rem;
+		margin-top: 5px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+		z-index: 2;
+	}
+/* End Minoan History Section */
+
+/*  Mycenaean History Section */
+.AMYH{
+	min-height: 100vh;
+	width: 100%;
+	padding: 0%;
+	background-image:  url(./img/Mycenaena-bg.png);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 1;
+}
+	
+	#AMYH::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: black;
+		opacity: 0.7;
+		z-index: -1;
+	}
+	.AMYH-title {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		bottom: 730px;
+		right: 500px;
+		z-index: -1;
+	}
+	.AMYH-title span {
+		color: brown;
+	}
+	.AMYH-title2 {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		bottom: 680px;
+		right: 560px;
+		z-index: -1;
+	}
+	.AMYH-title2 span {
+		color: brown;
+	}
+	#AMYH .AMYH {
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+	#AMYH h1 {
+		display: block;
+		width: fit-content;
+		font-size: 4rem;
+		position: relative;
+		color: white;
+		animation: text_reveal 0.5s ease forwards;
+		animation-delay: 1s;
+	}
+	
+	#AMYH .contact {
+		position: absolute;
+		display: inline;
+		margin-top: 100px;
+		flex-direction: column;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	
+	}
+	#AMYH .contact-items {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#AMYH .contact-item {
+		position: absolute;
+		top: 54.5%;
+		left: 58.5%;
+		margin-right: -20%;
+		opacity: 0;
+		z-index: 1;
+		transform: translate(-50%, -50%)
+	
+	}
+	
+	#AMYH .contact-item:hover {
+		opacity: 0.9;
+	}
+	
+	#AMYH .cta{
+		position: relative;
+		top: 10%;
+		left: 85%;
+	}
+	
+	#AMYH .contact2 {
+		position: absolute;
+		display: inline;
+		margin-top: 100px;
+		flex-direction: column;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+		border: 3px red;
+	
+	}
+	#AMYH .contact-items2 {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#AMYH .contact-item2 {
+		position: absolute;
+	
+		top: 24%;
+		left: 28%;
+		margin-right: -20%;
+		word-wrap: normal; 
+		z-index: 1;
+		transform: translate(-50%, -50%)
+	
+	}
+	
+	#AMYH .contact-item2:hover {
+		opacity: 1;
+	}
+	
+	#AMYH h3 {
+		color: white;
+		
+		font-size: 1.7rem;
+		margin-top: 5px;
+		line-height: 2rem;
+		font-weight: 300;
+		letter-spacing: 0.1rem;
+	}
+		.brand h3 {
+		font-size: 3rem;
+		text-transform: uppercase;
+		color: crimson;
+		}
+	#AMYH .brand h3 span {
+		color: crimson;
+	}
+	/* End Mycenaean History Section */
+
+	/* Archaic Section */
+.ArchaicSection-title {
+	position: relative;
+	font-size: 40px;
+	font-weight: 40px;
+	color: white;
+	width: fit-content;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	bottom: 280px;
+	z-index: 1;
+}
+.ArchaicSection-title span {
+	color: brown ;
+}
+#Archaic .Archaic {
+	flex-direction: column;
+	text-align: center;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 100px 0;
+}
+#Archaic .Archaic-top {
+	max-width: 500px;
+	margin: 0 auto;
+}
+#Archaic .Archaic-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 50px;
+}
+
+#Archaic {
+	background-image: url(./img/ancient-greek-inscription.png);
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+}
+
+#Archaic::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+	#Archaic .cta1 {
+		display: inline-block;
+		padding: 1.4% 1.8%;
+		color: white;
+		background-color: transparent;
+		border: 3px solid #00A693;
+		font-size: 4rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		margin-top: 30px;
+		transition: 0.3s ease;
+		transition-property: background-color, color;
+	}
+	#Archaic .cta1:hover {
+		color: #83B8D0;
+		background-color:  crimson;
+	}
+	
+	#Archaic .AAthenscontainer {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#Archaic .AAthenscontainer {
+		position: absolute;
+		top: 50%;
+		left: 62%;
+		margin-right: -20%;
+		word-wrap: normal; 
+		z-index: 1;
+		transform: translate(-50%, -50%)
+
+	}
+	#Archaic .AAthenscontainer:hover {
+		opacity: 1;
+	}
+	#Archaic .cta2 {
+		display: inline-block;
+		padding: 1.4% 1.8%;
+		color: white;
+		background-color: transparent;
+		border: 3px solid #83B8D0;
+		font-size: 4rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		margin-top: 30px;
+		transition: 0.3s ease;
+		transition-property: background-color, color;
+	}
+	#Archaic .cta2:hover {
+		color: crimson;
+		background-color:  #00A693;
+	}
+	
+	#Archaic .AASpartacontainer {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#Archaic .AASpartacontainer {
+		position: absolute;
+
+		top: 50%;
+		left: 92%;
+		margin-right: -20%;
+		word-wrap: normal; 
+		z-index: 1;
+		transform: translate(-50%, -50%)
+
+	}
+	#Archaic .AASpartacontainer:hover {
+		opacity: 1;
+	}
+	#Archaic .cta3 {
+		display: inline-block;
+		padding: 1.4% 1.8%;
+		color: white;
+		background-color: transparent;
+		border: 3px solid crimson;
+		font-size: 4rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		margin-top: 30px;
+		transition: 0.3s ease;
+		transition-property: background-color, color;
+	}
+	#Archaic .cta3:hover {
+		color: #00A693;
+		background-color:  #83B8D0;
+	}
+	#Archaic .APersiascontainer {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#Archaic .APersiascontainer {
+		position: absolute;
+		top: 50%;
+		margin-left: 122%;
+		margin-right: -20%;
+		word-wrap: normal; 
+		z-index: 1;
+		transform: translate(-50%, -50%)
+
+	}
+	#Archaic .APersiascontainer:hover {
+		opacity: 1;
+	}
+
+
+/* End Archaic Section */
+
+/* Archaic Athens History Section */
+#AAH {
+	min-height: 100vh;
+	width: 100%;
+	padding: 0%;
+	background-image:  url(./img/partenon-em-atenas.png);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 1;
+}
+	
+	#AAH::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: black;
+		opacity: 0.2;
+		z-index: -1;
+	}
+	.AAH-title {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 80px;
+		right: 500px;
+		z-index: 2;
+	}
+	.AAH-title span {
+		color: #83B8D0;
+	}
+	.AAH-title{
+		display: inline-block;
+		background-color: white;
+		opacity: 0.7;
+	}
+	.AAH-title2 {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 127.78px;
+		right: 610px;
+		z-index: 2;
+	}
+	.AAH-title2 span {
+		color: #83B8D0;
+	}
+	.AAH-title2{
+		display: inline-block;
+		background-color: white;
+		opacity: 0.7;
+	}
+	#AAH .AAH {
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+	#AAH h1 {
+		display: block;
+		width: fit-content;
+		font-size: 4rem;
+		position: relative;
+		color: black;
+		animation: text_reveal 0.5s ease forwards;
+		animation-delay: 1s;
+	}
+	
+	#AAH .contact {
+		position: absolute;
+		display: inline;
+		margin-top: 100px;
+		flex-direction: column;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	
+	}
+	#AAH .contact-items {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#AAH .contact-item {
+		position: absolute;
+		top: 30%;
+		left: 20%;
+		margin-right: -20%;
+		opacity: 0.6;
+		z-index: 1;
+		transform: translate(-50%, -50%)
+	
+	}
+	
+	#AAH .contact-item:hover {
+		opacity: 0.9;
+	}
+	
+	#AAH .cta{
+		position: relative;
+		top: 30%;
+		left: 85%;
+	}
+
+	#AAH .Timeline-container{
+		display: inline-block;
+		padding: 1.4% 1.8%;
+		width: 500px;
+		margin-top: 15%;
+		margin-left: 32%;
+		color: White;
+		background-color: black;
+		opacity: 0.7;
+		z-index: 2;
+	}
+	#AAH h5 {
+		color: White;
+		font-size: 2rem;
+		letter-spacing: 0.1rem;
+		margin-top: 15px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+		z-index: 2;
+	}
+	#AAH p {
+		color: White;
+		font-size: 1.4rem;
+		letter-spacing: 0.01rem;
+		line-height: 1.5rem;
+		margin-top: 5px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+		z-index: 2;
+	}
+
+	/* End Archaic Athens History Section */
+
+/* Archaic Spart History Section */
+#ASH {
+	min-height: 100vh;
+	width: 100%;
+	padding: 0%;
+	background-image:  url(./img/Sparta-tr.png);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 1;
+}
+#ASH::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.3;
+	z-index: -1;
+}
+	.ASH-title {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: White;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 80px;
+		right: 500px;
+		z-index: 2;
+	}
+	.ASH-title span {
+		color: crimson;
+	}
+	.ASH-title{
+		display: inline-block;
+		background-color: black;
+		opacity: 0.7;
+	}
+	.ASH-title2 {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: white;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 127.78px;
+		right: 610px;
+		z-index: 2;
+	}
+	.ASH-title2 span {
+		color: crimson;
+	}
+	.ASH-title2{
+		display: inline-block;
+		background-color: black;
+		opacity: 0.7;
+	}
+	#ASH .ASH {
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+	#ASH h1 {
+		display: block;
+		width: fit-content;
+		font-size: 4rem;
+		position: relative;
+		color: black;
+		animation: text_reveal 0.5s ease forwards;
+		animation-delay: 1s;
+	}
+	
+	#ASH .contact {
+		position: absolute;
+		display: inline;
+		margin-top: 100px;
+		flex-direction: column;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	
+	}
+	#ASH .contact-items {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#ASH .contact-item {
+		position: absolute;
+		top: 30%;
+		left: 20%;
+		margin-right: -20%;
+		opacity: 0.6;
+		z-index: 1;
+		transform: translate(-50%, -50%)
+	
+	}
+	
+	#ASH .contact-item:hover {
+		opacity: 0.9;
+	}
+	
+	#ASH .cta{
+		position: relative;
+		top: 30%;
+		left: 85%;
+	}
+
+	#ASH .Timeline-container{
+		display: inline-block;
+		padding: 1.4% 1.8%;
+		width: 500px;
+		margin-top: 15%;
+		margin-left: 5%;
+		color: White;
+		background-color: black;
+		opacity: 0.7;
+		z-index: 2;
+	}
+	#ASH h5 {
+		color: White;
+		font-size: 2rem;
+		letter-spacing: 0.1rem;
+		margin-top: 15px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+	}
+	#ASH p {
+		color: White;
+		font-size: 1.4rem;
+		letter-spacing: 0.01rem;
+		line-height: 1.5rem;
+		margin-top: 5px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+	}
+		
+	/* End Archaic Sparta History Section */
+
+
+/* Archaic Persia History Section */
+#APH {
+	min-height: 100vh;
+	width: 100%;
+	padding: 0%;
+	background-image:  url(./img/Persia-bg.png);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 1;
+}
+	
+	#APH::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: black;
+		opacity: 0.2;
+		z-index: -1;
+	}
+	.APH-title {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 80px;
+		right: 500px;
+		z-index: 2;
+	}
+	.APH-title span {
+		color: #00A693;
+	}
+	.APH-title{
+		display: inline-block;
+		background-color: white;
+		opacity: 0.6;
+	}
+	.APH-title2 {
+		position: absolute;
+		font-size: 40px;
+		font-weight: 40px;
+		color: black;
+		width: fit-content;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		text-align: center;
+		top: 127.78px;
+		right: 610px;
+		z-index: 2;
+	}
+	.APH-title2 span {
+		color: #00A693;
+	}
+	.APH-title2{
+		display: inline-block;
+		background-color: white;
+		opacity: 0.6;
+	}
+	#APH .APH {
+		margin: 0 auto;
+		padding: 0 50px;
+		justify-content: flex-start;
+	}
+	#APH h1 {
+		display: block;
+		width: fit-content;
+		font-size: 4rem;
+		position: relative;
+		color: black;
+		animation: text_reveal 0.5s ease forwards;
+		animation-delay: 1s;
+	}
+	
+	#APH .contact {
+		position: absolute;
+		display: inline;
+		margin-top: 100px;
+		flex-direction: column;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+	
+	}
+	#APH .contact-items {
+		/* max-width: 400px; */
+		width: 100%;
+	}
+	#APH .contact-item {
+		position: absolute;
+		top: 30%;
+		left: 20%;
+		margin-right: -20%;
+		opacity: 0.6;
+		z-index: 1;
+		transform: translate(-50%, -50%)
+	
+	}
+	
+	#APH .contact-item:hover {
+		opacity: 0.9;
+	}
+	
+	#APH .cta{
+		position: relative;
+		top: 30%;
+		left: 85%;
+	}
+
+	#APH .Timeline-container{
+		display: inline-block;
+		padding: 1.4% 1.8%;
+		width: 500px;
+		margin-top: 15%;
+		margin-left: 60%;
+		color: White;
+		background-color: black;
+		opacity: 0.55;
+		z-index: 2;
+	}
+	#APH h5 {
+		color: White;
+		font-size: 2rem;
+		letter-spacing: 0.1rem;
+		margin-top: 15px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+		z-index: 2;
+	}
+	#APH p {
+		color: White;
+		font-size: 1.4rem;
+		letter-spacing: 0.01rem;
+		line-height: 1.5rem;
+		margin-top: 5px;
+		opacity: 1;
+		transition: 0.5s ease;
+		transition-property: background-color, color;
+		z-index: 2;
+	}
+		
+	/* End Archaic Persia History Section */
+
+/* Classic Section */
+#Clasic {
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+}
+#Clasic::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.25;
+	z-index: -1;
+}
+.ClasicSection-title {
+	font-size: 4rem;
+	font-weight: 400;
+	color: white;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	margin-bottom: 15%;
+}
+.ClasicSection-title span {
+	color: brown;
+}
+
+#Clasic .cta {
+	display: inline-block;
+	padding: 1.4% 1.8%;
+	color: White;
+	background-color: transparent;
+	border: 3px solid #FFD000;
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+#Clasic .cta:hover {
+	color: greenyellow;
+	background-color:  #00A4E0;
+}
+
+#Clasic .AMinoanscontainer {
+	/* max-width: 400px; */
+	width: 100%;
+}
+#Clasic .AMinoanscontainer {
+	position: absolute;
+	top: 50%;
+	left: 68%;
+	margin-right: -20%;
+	word-wrap: normal; 
+	z-index: 1;
+	transform: translate(-50%, -50%)
+
+}
+#Clasic .AMinoanscontainer:hover {
+	opacity: 1;
+}
+
+#Clasic .cta1 {
+	display: inline-block;
+	padding: 1.4% 1.8%;
+	color: white;
+	background-color: transparent;
+	border: 3px solid #CD7F32;
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+#Clasic .cta1:hover {
+	color: cyan;
+	background-color:  #C0C0C0;
+}
+#Clasic .AMycenaeanscontainer {
+	/* max-width: 400px; */
+	width: 100%;
+}
+#Clasic .AMycenaeanscontainer {
+	position: absolute;
+	top: 50%;
+	left: 108%;
+	margin-right: -20%;
+	word-wrap: normal; 
+	z-index: 1;
+	transform: translate(-50%, -50%)
+
+}
+
+#Clasic .AMycenaeanscontainer:hover {
+	opacity: 1;
+}
+/* End Classic Section */
+
+/* Hellenic Section */
+#Hellenic {
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+}
+#Hellenic::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.25;
+	z-index: -1;
+}
+.HellenicSection-title {
+	font-size: 4rem;
+	font-weight: 400;
+	color: white;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	margin-bottom: 15%;
+}
+.HellenicSection-title span {
+	color: brown;
+}
+
+#Hellenic .cta {
+	display: inline-block;
+	padding: 1.4% 1.8%;
+	color: White;
+	background-color: transparent;
+	border: 3px solid #FFD000;
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+#Hellenic .cta:hover {
+	color: greenyellow;
+	background-color:  #00A4E0;
+}
+
+#Hellenic .AMinoanscontainer {
+	/* max-width: 400px; */
+	width: 100%;
+}
+#Hellenic .AMinoanscontainer {
+	position: absolute;
+	top: 50%;
+	left: 68%;
+	margin-right: -20%;
+	word-wrap: normal; 
+	z-index: 1;
+	transform: translate(-50%, -50%)
+
+}
+#Hellenic .AMinoanscontainer:hover {
+	opacity: 1;
+}
+
+#Hellenic .cta1 {
+	display: inline-block;
+	padding: 1.4% 1.8%;
+	color: white;
+	background-color: transparent;
+	border: 3px solid #CD7F32;
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+#Hellenic .cta1:hover {
+	color: cyan;
+	background-color:  #C0C0C0;
+}
+#Hellenic .AMycenaeanscontainer {
+	/* max-width: 400px; */
+	width: 100%;
+}
+#Hellenic .AMycenaeanscontainer {
+	position: absolute;
+	top: 50%;
+	left: 108%;
+	margin-right: -20%;
+	word-wrap: normal; 
+	z-index: 1;
+	transform: translate(-50%, -50%)
+
+}
+
+#Hellenic .AMycenaeanscontainer:hover {
+	opacity: 1;
+}
+/*End Hellenic Section */
+
+/* Footer */
+#footer {
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+#footer .footer {
+	min-height: 200px;
+	flex-direction: column;
+	padding-top: 50px;
+	padding-bottom: 10px;
+}
+#footer h2 {
+	color: white;
+	font-weight: 500;
+	font-size: 1.8rem;
+	letter-spacing: 0.1rem;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#footer .social-icon {
+	display: flex;
+	margin-bottom: 30px;
+}
+#footer .social-item {
+	height: 50px;
+	width: 50px;
+	margin: 0 5px;
+}
+#footer .social-item img {
+	filter: grayscale(1);
+	transition: 0.3s ease filter;
+}
+#footer .social-item:hover img {
+	filter: grayscale(0);
+}
+#footer p {
+	color: white;
+	font-size: 1.3rem;
+}
+/* End Footer */
+
+/* Keyframes */
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+@keyframes text_reveal {
+	100% {
+		color: white;
+	}
+}
+@keyframes text_reveal_name {
+	100% {
+		color: crimson;
+		font-weight: 500;
+	}
+}
+/* End Keyframes */
+
+/* Media Query For Tablet */
+@media only screen and (min-width: 768px) {
+	.cta {
+		font-size: 2.5rem;
+		padding: 20px 60px;
+	}
+	h1.section-title {
+		font-size: 6rem;
+	}
+
+	/* Map */
+	#Map h1 {
+		font-size: 7rem;
+	}
+	/* End Map */
+
+	/* Archaic Section */
+	#Archaic .Archaic-bottom .Archaic-item {
+		flex-basis: 45%;
+		margin: 2.5%;
+	}
+	/* End Archaic Section */
+
+	/* Project */
+	#PGreeks .project-item {
+		flex-direction: row;
+	}
+	#PGreeks .project-item:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+	#PGreeks .project-item {
+		height: 400px;
+		margin: 0;
+		width: 100%;
+		border-radius: 0;
+	}
+	#PGreeks .all-PGreeks .project-info {
+		height: 100%;
+	}
+	#PGreeks .all-PGreeks .project-img {
+		height: 100%;
+	}
+	/* End Project */
+
+	/* About */
+	#Clasic .Clasic {
+		flex-direction: row;
+	}
+	#Clasic .col-left {
+		width: 600px;
+		height: 400px;
+		padding-left: 60px;
+	}
+	#Clasic .Clasic .col-left .Clasic-img::after {
+		left: -45px;
+		top: 34px;
+		height: 98%;
+		width: 98%;
+		border: 10px solid crimson;
+	}
+	#Clasic .col-right {
+		text-align: left;
+		padding: 30px;
+	}
+	#Clasic .col-right h1 {
+		text-align: left;
+	}
+	/* End About */
+
+	/* contact  */
+	#contact .contact {
+		flex-direction: column;
+		padding: 100px 0;
+		align-items: center;
+		justify-content: center;
+		min-width: 20vh;
+	}
+	#contact .contact-items {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		margin: 0;
+	}
+	#contact .contact-item {
+		width: 30%;
+		margin: 0;
+		flex-direction: row;
+	}
+	#contact .contact-item .icon {
+		height: 100px;
+		width: 100px;
+	}
+	#contact .contact-item .icon img {
+		object-fit: contain;
+	}
+	#contact .contact-item .contact-info {
+		width: 100%;
+		text-align: left;
+		padding-left: 20px;
+	}
+	/* End contact  */
+}
+/* End Media Query For Tablet */
+
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+	/* header */
+	#header .hamburger {
+		display: none;
+	}
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+	#header .nav-list ul li {
+		display: inline-block;
+	}
+	#header .nav-list ul li a {
+		font-size: 1.8rem;
+	}
+	#header .nav-list ul a:after {
+		display: none;
+	}
+	/* End header */
+
+	#Archaic .Archaic-bottom .Archaic-item {
+		flex-basis: 22%;
+		margin: 1.5%;
+	}
+}
+/* End  Media Query For Desktop */
